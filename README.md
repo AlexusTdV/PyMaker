@@ -6,35 +6,34 @@
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
 
 Простая утилита на **PyQt6** для быстрого создания Python‑файлов в выбранной папке.
-- Встроенное окно кода
-- Выбор базовой папки и создание внутренней подпапки
-- Имя файла по умолчанию `main.py`
-- Опции: открыть файл и/или папку после создания
 
-![Screenshot](docs/screenshot.png)
+-   Встроенное окно кода
+-   Выбор базовой папки и создание внутренней подпапки
+-   Имя файла по умолчанию `main.py`
+-   Опции: открыть файл и/или папку после создания
 
 ## Установка и запуск
+
 ```bash
 pip install -r requirements.txt
 python main.py
 ```
 
 ## Сборка исполняемых файлов (CI)
+
 Готовые сборки публикуются в артефактах GitHub Actions после каждого push.
 Локально можно собрать так:
+
 ```bash
 pyinstaller -F -w main.py --icon=icon.ico --add-data "icon.ico;."
 ```
 
-## Темы/задачи
-- [ ] Горячие клавиши (Ctrl+S, Ctrl+O)
-- [ ] Подсветка синтаксиса (Qsci/QSyntaxHighlighter)
-- [ ] Шаблоны кода (CLI, Flask, FastAPI)
-
 ## Вклад
+
 Pull Request'ы приветствуются! См. [CONTRIBUTING.md](CONTRIBUTING.md).
 
 ---
 
 ### English
+
 Simple **PyQt6** utility to quickly create Python `.py` files in a chosen folder, with optional subfolder creation and auto‑open options.
