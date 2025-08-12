@@ -1,0 +1,31 @@
+name: build
+
+on:
+  push:
+  pull_request:
+
+jobs:
+  pyinstaller:
+    runs-on: ${{ matrix.os }}
+    strategy:
+      matrix:
+        os: [windows-latest, ubuntu-latest, macos-latest]
+        python-version: ["3.11"]
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: ${{ matrix.python-version }}
+      - name: Install deps
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r requirements.txt
+          pip install pyinstaller
+      - name: Build
+        run: |
+          pyinstaller -F -w main.py --icon=icon.ico --add-data "icon.ico;."
+      - name: Upload artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: pymaker-${{ matrix.os }}
+          path: dist/
